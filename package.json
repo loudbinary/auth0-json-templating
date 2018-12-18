@@ -1,0 +1,19 @@
+{
+  "name": "auth0-json-templating",
+  "version": "1.0.0",
+  "description": "Constructs Auth0 tenant template details, replacing with env values.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/loudbinary/auth0-json-templating.git"
+  },
+  "author": "Loudbinary <loudbinary@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loudbinary/auth0-json-templating/issues"
+  },
+  "homepage": "https://github.com/loudbinary/auth0-json-templating#readme"
+}
