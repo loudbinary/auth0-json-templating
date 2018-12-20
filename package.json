@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/loudbinary/auth0-json-templating#readme",
   "devDependencies": {
+    "directory-tree": "^2.2.0",
+    "envkey": "^1.2.4",
     "fs-extra": "^7.0.1",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",

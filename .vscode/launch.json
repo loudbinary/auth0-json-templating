@@ -8,7 +8,14 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/readdir.js"
+            "program": "${workspaceFolder}/app.js",
+            "env": {"ENVKEY": "<put your own envkey here>"}
+        },
+        {
+            "type": "node",
+            "request": "launch", 
+            "name": "TESTLaunch Program",
+            "program": "${workspaceFolder}/test.js"
         }
     ]
 }
