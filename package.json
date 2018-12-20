@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/loudbinary/auth0-json-templating/issues"
   },
-  "homepage": "https://github.com/loudbinary/auth0-json-templating#readme"
+  "homepage": "https://github.com/loudbinary/auth0-json-templating#readme",
+  "devDependencies": {
+    "fs-extra": "^7.0.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "lodash": "^4.17.11",
+    "map-keys-deep-lodash": "^1.2.2",
+    "require-dir-all": "^0.4.15",
+    "shelljs": "^0.8.3"
+  },
+  "dependencies": {}
 }
