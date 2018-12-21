@@ -73,6 +73,69 @@ Utils.prototype.replaceStringValues = function replaceStringValues(templateList)
     })
 }
 
+function getKeyName(keyValue,delimeter){
+     leftside = keyValue.indexOf(delimeter)
+     substr = keyValue.substring(leftside + 2)
+     rightside = substr.indexOf(delimeter)
+     keyname = substr.substring(0,rightside)
+     keyValue.substring(0,)
+     return keyname
+}
+
+
+function mapDeep( obj ) {
+    for ( var prop in obj ) {
+        if ( obj[prop] === String(obj[prop]) ){
+            if (obj[prop].indexOf("##")>=0){
+                keyname = getKeyName(obj[prop],"##")
+                if (process.env[keyname]){
+                    obj[prop] = obj[prop].replace("##" + keyname + "##",process.env[keyname].trimLeft().trimRight())
+                } else {
+                    console.log('Missing environment key:',keyname)
+                }
+            }
+            if (obj[prop].indexOf("@@")>=0){
+                keyname = getKeyName(obj[prop],"@@")
+                if (process.env[keyname]){
+                    obj[prop] = []
+                    _.forEach(process.env[keyname].split(","),v =>{
+                        obj[prop].push(v.trimLeft().trimRight())
+                    })
+                } else {
+                    console.log('Missing environment key:',keyname)
+                }
+            }
+        }
+        else if ( obj[prop] === Object(obj[prop]) ) mapDeep( obj[prop] );
+    }
+};
+Utils.prototype.saveTemplateList = function saveTemplateList(templateList,basePath, savedLocation) {
+    fse.emptyDirSync(savedLocation)
+    _.forEach(templateList,t=>{
+        savedFilePath = _.replace(t.path,basePath,'')
+        t.path = path.join(savedLocation,savedFilePath)
+        currentBasePath = path.join(savedLocation,path.basename(path.dirname(t.path)))
+        fse.ensureDirSync(currentBasePath)
+        fse.ensureFileSync(t.path)
+        fse.writeJSONSync(t.path,t.json,{spaces: 4})
+    })
+}
+
+Utils.prototype.replaceDelimetedText = function replaceDelimetedText(templateList) {
+    return new Promise((resolve,reject)=>{
+        try{
+            loadEnvkeyValues()
+            .then(()=>{
+                mapDeep(templateList)
+                resolve(templateList)
+            })
+        }
+        catch(e){
+            reject(e)
+        }
+    })
+
+}
 Utils.prototype.readJsonIntoObject = function parseJsonFiles(templateList){
     return new Promise((resolve,reject)=>{
         try{

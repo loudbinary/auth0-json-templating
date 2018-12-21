@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/app.js",
-            "env": {"ENVKEY": "<put your own envkey here>"}
+            "env": {"ENVKEY": "33wmDizsCB2NCdtJXTzY-2iYjrVx79NrYqQRz"}
         },
         {
             "type": "node",
