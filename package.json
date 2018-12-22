@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Constructs Auth0 tenant template details, replacing with env values.",
   "main": "app.js",
+  "bin": {
+    "auth0-json-templating": "./app.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
