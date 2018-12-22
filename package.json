@@ -1,6 +1,6 @@
 {
   "name": "auth0-json-templating",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Constructs Auth0 tenant template details, replacing with env values.",
   "main": "app.js",
   "bin": {
