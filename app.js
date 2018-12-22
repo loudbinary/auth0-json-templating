@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 let App = require('./libs/index.js');
 let app = new App();
 //const templateDirectory="/Users/charles.russell/droneup1/com.dartfleet.auth0/tenant_template"
