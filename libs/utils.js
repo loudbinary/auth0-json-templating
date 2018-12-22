@@ -18,11 +18,15 @@ function getJsonChildren(children, child) {
 }
 
 function loadEnvkeyValues(){
-    console.log('Loading envkey values into process...')
     return new Promise((resolve,reject)=>{
         try{
-            require('envkey')
-            resolve(null)
+            if (process.env.ENVKEY){
+                console.log('Loading envkey values into process...')
+                require('envkey')
+                resolve(null)
+            } else {
+                resolve(null)
+            }
         }
         catch(e){
             reject(e)
@@ -121,6 +125,9 @@ Utils.prototype.saveTemplateList = function saveTemplateList(templateList,basePa
     })
 }
 
+Utils.prototype.copyRemaining = function copyRemaining(source,destination){
+    fse.copySync(source,destination,{overwrite: false, })
+}
 Utils.prototype.replaceDelimetedText = function replaceDelimetedText(templateList) {
     return new Promise((resolve,reject)=>{
         try{

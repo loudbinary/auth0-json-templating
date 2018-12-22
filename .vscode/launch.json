@@ -9,13 +9,12 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceFolder}/app.js",
-            "env": {"ENVKEY": "33wmDizsCB2NCdtJXTzY-2iYjrVx79NrYqQRz"}
-        },
-        {
-            "type": "node",
-            "request": "launch", 
-            "name": "TESTLaunch Program",
-            "program": "${workspaceFolder}/test.js"
+            "args": [
+                "-t","./tenant_template",
+                "-s","./saveDirectoryAuth0Templates",
+                "-e","./.env"
+            ],
+            "env": {"ENVKEY": "envkeyhere"}
         }
     ]
 }
