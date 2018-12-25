@@ -115,11 +115,13 @@ function mapDeep( obj ) {
 };
 Utils.prototype.saveTemplateList = function saveTemplateList(templateList,basePath, savedLocation) {
     fse.emptyDirSync(savedLocation)
+    savedBase = path.basename(savedLocation)
     _.forEach(templateList,t=>{
         savedFilePath = _.replace(t.path,basePath,'')
         t.path = path.join(savedLocation,savedFilePath)
+        fileBasePath = path.basename(path.dirname(t.path))
         currentBasePath = path.join(savedLocation,path.basename(path.dirname(t.path)))
-        fse.ensureDirSync(currentBasePath)
+        if (fileBasePath !== savedBase) fse.ensureDirSync(currentBasePath)
         fse.ensureFileSync(t.path)
         fse.writeJSONSync(t.path,t.json,{spaces: 4})
     })

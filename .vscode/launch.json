@@ -10,11 +10,10 @@
             "name": "Launch Program",
             "program": "${workspaceFolder}/app.js",
             "args": [
-                "-t","./tenant_template",
-                "-s","./saveDirectoryAuth0Templates",
-                "-e","./.env"
+                "-t","/Users/charles.russell/droneup1/com.dartfleet.auth0/tenant_template",
+                "-s","/Users/charles.russell/Loudbinary/saveDirectoryAuth0Templates"
             ],
-            "env": {"ENVKEY": "envkeyhere"}
+            "env": {"ENVKEY": "NzcpDEMfxCFPMUqyC35m-4gmh3d1TN8aJshwL"}
         }
     ]
 }
