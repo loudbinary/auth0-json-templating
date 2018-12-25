@@ -8,20 +8,25 @@ App.prototype.processArgs = function processArgs(next){
   .version('0.1.0')
   .option('-t, --templateDirectory [directory]', 'Auth0 Template Directory')
   .option('-s, --saveDirectory [directory]', 'Directory to save Auth0 Tenant configuration')
-  //.options('-e, --envFile [envfilepath]', 'Env file to load variables from')
   .parse(process.argv);
 
-  console.log('Executing with settings:');
   if (program.templateDirectory) console.log(' - Template Directory:',program.templateDirectory);
   if (program.saveDirectory) console.log(' - Save Directory:',program.saveDirectory);
-  //if (program.envFile) require('dotenv').config({ path: program.envFile })
   _.merge(this.options,program)
   next()
+}
+
+function printHelp(){
+  console.log('')
+  console.log('Required Arguments:');
+  console.log('  (-t) --templateDirectory <path to auth0 templates>');
+  console.log('  (-s) --saveDirectory <path to save filled out template>');
 }
 
 function App(options) {
     this.options = options || {}
     this.utils = new Utils()
+    this.printHelp = printHelp()
   }
 
   module.exports = App;

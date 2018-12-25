@@ -14,6 +14,6 @@ app.processArgs(()=>{
     .then(templateList => app.utils.saveTemplateList(templateList,templateDirectory,saveDirectory))
     .then(() => app.utils.copyRemaining(templateDirectory,saveDirectory))
     .catch(e =>{
-        console.log(e)
+        app.utils.printHelp
     })
 })

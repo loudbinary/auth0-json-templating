@@ -78,12 +78,12 @@ Utils.prototype.replaceStringValues = function replaceStringValues(templateList)
 }
 
 function getKeyName(keyValue,delimeter){
-     leftside = keyValue.indexOf(delimeter)
-     substr = keyValue.substring(leftside + 2)
-     rightside = substr.indexOf(delimeter)
-     keyname = substr.substring(0,rightside)
-     keyValue.substring(0,)
-     return keyname
+    leftside = keyValue.indexOf(delimeter)
+    substr = keyValue.substring(leftside + 2)
+    rightside = substr.indexOf(delimeter)
+    keyname = substr.substring(0,rightside)
+    keyValue.substring(0,)
+    return keyname
 }
 
 
@@ -174,7 +174,6 @@ Utils.prototype.createTemplateSkeleton = function createTemplateSkeleton(directo
 Utils.prototype.parseDirectories = function parseDirectories(dirPath) {
     return new Promise((resolve,reject)=>{
         try{
-            console.log("Enumerating all json files in directory:",dirPath)
             const config = dirTree(dirPath,{ extensions: /\.json/ })
             resolve(config)
         }
